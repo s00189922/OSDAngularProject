@@ -1,0 +1,15 @@
+<p>artist works!</p>
+
+
+<h2>The List of Artists</h2>
+
+<h3 *ngIf=message>{{message}}</h3>
+
+<ol>
+    <li *ngFor='let a of artists'>
+      {{a.first_name}}  
+      {{a.last_name}}
+    </li>
+  </ol>
+  
+

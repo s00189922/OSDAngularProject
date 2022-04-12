@@ -1,0 +1,12 @@
+<p>artist-list works!</p>
+
+<h2 *ngIf="message">{{message}}</h2>
+
+ 
+<app-artist-row *ngFor="let a of artistList"
+[artist]="a" 
+(click)='clicked(a)'></app-artist-row>
+
+<app-artist-details *ngIf="currentArtist!" [artist]="currentArtist">
+
+</app-artist-details>
