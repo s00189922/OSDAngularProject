@@ -1,12 +1,36 @@
-<p>artist-list works!</p>
+<div class="container-fluid">
 
-<h2 *ngIf="message">{{message}}</h2>
 
- 
-<app-artist-row *ngFor="let a of artistList"
-[artist]="a" 
-(click)='clicked(a)'></app-artist-row>
-
-<app-artist-details *ngIf="currentArtist!" [artist]="currentArtist">
-
-</app-artist-details>
+    <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+      <strong>Opps</strong> {{message}}
+      <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+    </div>
+  
+    <button (click)="openAddArtist()" *ngIf="!showArtistForm" 
+    class="btn btn-lg btn-outline-primary">Add Artist</button>
+  
+    <button (click)="openEditArtist()" *ngIf="!showArtistForm" [disabled]="!currentArtist"
+      class="btn btn-lg btn-outline-primary">Edit Artist</button>
+  
+    <button (click)="deleteArtist()" *ngIf="!showArtistForm" [disabled]="!currentArtist"
+      class="btn btn-lg btn-outline-danger">Delete Artist</button>
+  
+      <app-artist-form *ngIf="showArtistForm" 
+      (newArtistEvent)="addNewArtist"
+      (artistFormClose)="artistFormClose($event)"
+        [artist]="currentArtist"></app-artist-form>
+    
+      <div *ngIf="!showArtistForm">
+        <app-artist-row class="card" *ngFor="let a of artistList" [artist]="a" (click)='clicked(a)'
+          [class.bg-info]="isSelected(a)" [class.text-white]="isSelected(a)">
+        </app-artist-row>
+      </div>
+    
+      <app-artist-details *ngIf="currentArtist!" [artist]="currentArtist">
+    
+      </app-artist-details>
+    
+    
+    
+    
+    </div>

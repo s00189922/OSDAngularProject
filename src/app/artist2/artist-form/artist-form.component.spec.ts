@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ArtistListComponent } from './artist-list.component';
+import { ArtistFormComponent } from './artist-form.component';
 
-describe('ArtistRowComponent', () => {
-  let component: ArtistListComponent;
-  let fixture: ComponentFixture<ArtistListComponent>;
+describe('ArtistFormComponent', () => {
+  let component: ArtistFormComponent;
+  let fixture: ComponentFixture<ArtistFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArtistListComponent ]
+      declarations: [ ArtistFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArtistListComponent);
+    fixture = TestBed.createComponent(ArtistFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

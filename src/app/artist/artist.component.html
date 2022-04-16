@@ -1,4 +1,4 @@
-<p>artist works!</p>
+<!-- <p>artist works!</p>
 
 
 <h2>The List of Artists</h2>
@@ -10,6 +10,19 @@
       {{a.first_name}}  
       {{a.last_name}}
     </li>
-  </ol>
+  </ol> -->
   
+  <p>artist works!</p>
 
+  {{testString}}
+  
+  
+  
+  <li *ngFor = 'let s of testArray'>
+    {{s}}
+  </li>
+  
+  <li *ngFor = 'let a of artists'>
+      {{a.first_name}}
+      {{a.year_born}}
+    </li>

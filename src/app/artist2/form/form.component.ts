@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Artist } from 'src/app/artist';
 
 @Component({
   selector: 'app-form',
@@ -7,6 +8,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+
+  @Output() newArtistEvent = new EventEmitter<Artist>();
+  message: string = "";
 
 //defining a form group with two controls
   artistForm: FormGroup = new FormGroup({
@@ -18,10 +22,12 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 //called when button is clicked
   onSubmit() {
     console.log('forms submitted with ');
-    console.table(this.artistForm.value)
+    console.table(this.artistForm.value);
+    this.newArtistEvent.emit(this.artistForm.value)
   }
 
   get first_name() {
@@ -32,5 +38,4 @@ export class FormComponent implements OnInit {
   }
 
 
-
-}
+  }

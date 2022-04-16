@@ -13,10 +13,10 @@
 
 <button type="submit" [disabled]= "!artistForm.valid" >Submit</button>
 
-<div *ngIf="first_name.invalid && first_name.touched"  class="alert alert-danger" >
+<div *ngIf="first_name?.invalid && first_name?.touched"  class="alert alert-danger" >
     first_name is required and must be more than three characters
 </div>
-<div *ngIf="year_born.invalid && year_born.touched"  class="alert alert-danger" >
+<div *ngIf="year_born?.invalid && year_born?.touched"  class="alert alert-danger" >
     Year Written is required.
 </div>
 

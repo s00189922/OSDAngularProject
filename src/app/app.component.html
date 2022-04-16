@@ -1,13 +1,26 @@
-<h1>
-  Aisling's App
-</h1>
-<!--alert from bootstrap https://getbootstrap.com/docs/5.0/components/alerts/-->
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<h1>Aisling's Lovely App</h1>
+
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" >
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        <a class="nav-item nav-link" routerLink="/artists" routerLinkActive="active">Artists</a>
+        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+        <a class="nav-item nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+      
+        </div>
+</nav>
+
+<div *ngIf="user">{{user.first_name}}</div>
+
+<!-- main app container -->
+<div class="container pt-4">
+    <router-outlet></router-outlet>
 </div>
 
 
-<app-artist></app-artist>
 
 <router-outlet></router-outlet>
+
+

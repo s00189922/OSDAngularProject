@@ -8,7 +8,7 @@ import { Artist } from 'src/app/artist';
 })
 export class ArtistRowComponent implements OnInit {
 
-  @Input() artist: Artist;
+  @Input() artist?: Artist;
 
   constructor() { }
 

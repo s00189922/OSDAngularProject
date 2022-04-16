@@ -8,7 +8,7 @@ import {Artist} from '../../artist';
 })
 export class ArtistDetailsComponent implements OnInit {
 
-@Input() artist : Artist;
+@Input() artist? : Artist;
 
   constructor() { }
 
