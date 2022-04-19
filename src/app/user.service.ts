@@ -52,9 +52,15 @@ export class UserService {
 
     //The login function
      public login(email: string, password: string): Observable<any> {
-
-      return this.http.post<any>(`${this.apiURI}/auth`, { email: email, password: password }).
+      return this.http.post<any>
+    (`${this.apiURI}/auth`, { email: email, password: password },
+    {withCredentials:true}).    
       pipe(map(user => {
+
+// get the expiry time from the JWT
+//const payload = JSON.parse(atob(user.accessToken.split('.')[1]));
+//const expires = new Date(payload.exp * 1000);
+
        localStorage.setItem('currentUser', JSON.stringify(user))
        this.userSubject.next(user);
       // later we will start a timer based on the JWT expiry and
