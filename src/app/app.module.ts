@@ -9,9 +9,9 @@ import { ArtistListComponent } from './artist2/artist-list/artist-list.component
 import { ArtistRowComponent } from './artist2/artist-row/artist-row.component';
 import { ArtistFormComponent } from './artist2/artist-form/artist-form.component';
 import { ArtistDetailsComponent } from './artist2/artist-details/artist-details.component';
-import { HttpClientModule,HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './artist2/form/form.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
@@ -19,10 +19,11 @@ import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 
 import { JwtInterceptor } from './helpers/jwtinterceptor.service';
+import { ErrorInterceptor } from './helpers/errorinterceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    ArtistComponent, 
+    ArtistComponent,
     ArtistListComponent,
     ArtistRowComponent,
     ArtistDetailsComponent,
@@ -41,9 +42,9 @@ import { JwtInterceptor } from './helpers/jwtinterceptor.service';
     ReactiveFormsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-   // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
-   ],
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
