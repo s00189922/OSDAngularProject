@@ -7,6 +7,7 @@ import {HomeComponent} from './home/home.component';
 import {UserListComponent} from './user/user-list/user-list.component'
 import { FormComponent } from './artist2/form/form.component';
 import { ArtistDetailsComponent } from './artist2/artist-details/artist-details.component';
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   //{path: 'ListArtists',component: ListArtistComponent},
   {path: 'artist/:id',component: ArtistDetailsComponent},
   {path: 'artists',component: ArtistListComponent},
-  {path: 'users', component: UserListComponent},
+  {path: 'users', component: UserListComponent,  canActivate: [AuthGuard]},
+  //{path: 'users', component: UserListComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   //{path: 'protected',component: ProtectedComponent, canActivate:[AuthGuard]},
