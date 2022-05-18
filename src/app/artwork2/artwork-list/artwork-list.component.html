@@ -1,0 +1,36 @@
+<div class="container-fluid">
+
+
+  <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+    <strong>Opps</strong> {{message}}
+    <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+  </div>
+
+  <button (click)="openAddArtwork()" *ngIf="!showArtworkForm" 
+  class="btn btn-lg btn-outline-primary">Add Artwork</button>
+
+  <button (click)="openEditArtwork()" *ngIf="!showArtworkForm" [disabled]="!currentArtwork"
+    class="btn btn-lg btn-outline-primary">Edit Artwork</button>
+
+  <button (click)="deleteArtwork()" *ngIf="!showArtworkForm" [disabled]="!currentArtwork"
+    class="btn btn-lg btn-outline-danger">Delete Artwork</button>
+
+    <!-- <app-artwork-form *ngIf="showArtworkForm" 
+    (newArtworkEvent)="addNewArtwork"
+    (artworkFormClose)="artworkFormClose($event)"
+      [artwork]="currentArtwork"></app-artwork-form> -->
+  
+      <app-artwork-form *ngIf="showArtworkForm" 
+(artworkFormClose)="artworkFormClose($event)"
+  [artwork]="currentArtwork"></app-artwork-form>
+
+    <div *ngIf="!showArtworkForm">
+      <app-artwork-row class="card" *ngFor="let a of artworkList" [artwork]="a" (click)='clicked(a)'
+        [class.bg-info]="isSelected(a)" [class.text-white]="isSelected(a)">
+      </app-artwork-row>
+    </div>
+  
+    <app-artwork-details *ngIf="currentArtwork!" [artwork]="currentArtwork">
+  
+    </app-artwork-details>
+  </div>

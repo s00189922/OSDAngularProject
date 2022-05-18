@@ -1,6 +1,8 @@
 {
   "name": "osdangular-project",
   "version": "0.0.0",
+  "description": "Art & Ink Gallery with a cheerful API implementation with Node.js",
+  "main": "index.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,11 +21,20 @@
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
     "@popperjs/core": "^2.11.5",
+    "@types/jquery": "^3.5.14",
     "bootstrap": "^5.1.3",
+    "divider": "^0.1.1",
+    "jquery": "^3.6.0",
+    "nodemon": "^2.0.16",
+    "popper.js": "^1.16.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
-  },
+    "zone.js": "~0.11.4",
+    "limiting-middleware": "^1.3.2"
+  }, 
+  "keywords": [],
+  "author": "Aisling Mc Loughlin <s00189922>",
+  "license": "ISC",
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.2",
     "@angular/cli": "~13.3.2",
@@ -36,6 +47,12 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "~4.6.2"
+    "typescript": "~4.6.2",
+    "@types/axios": "^0.14.0",
+    "ts-node": "^10.7.0",
+    "nodemon": "^1.18.9"
+   
+    
   }
+  
 }

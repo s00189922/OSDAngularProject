@@ -1,0 +1,26 @@
+
+<form [formGroup]="artworkForm" (ngSubmit) = "onSubmit()" > -->
+
+
+<button type="button" class="btn-close" aria-label="Close" (click)="closeForm()"></button>
+
+<div class="mb-3">
+    <label for="title" class="form-label"> Title</label>
+    <input id="title" type="text" formControlName="title" class="form-control">
+</div>
+<div class="mb-3">
+    <label for="year" class="form-label"> Year </label>
+    <input id="year" type="number" formControlName="year" class="form-control">
+</div>
+
+<button type="submit" [disabled]= "!artworkForm?.valid" class="btn btn-primary" >Submit</button>
+
+<div *ngIf="title?.invalid && title?.touched"  class="alert alert-danger" >
+    Title is required and must be more than 2 characters
+</div>
+<div *ngIf="year?.invalid && year?.touched"  class="alert alert-danger" >
+    Year is required and must be 2022 or earlier
+</div>
+
+
+</form>

@@ -15,7 +15,7 @@ export class JwtInterceptor implements HttpInterceptor {
 
         const accessToken = user?.accessToken;
 
-        const isApiUrl = request.url.startsWith(environment.apiUrl);
+        const isApiUrl = request.url.startsWith("http://localhost:4200/");
 
         if (accessToken && isApiUrl) {
             request = request.clone({

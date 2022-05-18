@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Artist } from 'src/app/artist';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 @Component({
   selector: 'app-artist-form',
   templateUrl: './artist-form.component.html',
@@ -13,17 +13,23 @@ export class ArtistFormComponent implements OnInit {
   @Input() artist?: Artist;
   @Output() artistFormClose = new EventEmitter<Artist>();
   message: string = "";
-  artistForm? : FormGroup ;
+  // artistForm? : FormGroup ;
 
-  
+  //defining a form group with two controls
+  artistForm: FormGroup = new FormGroup({
+    first_name: new FormControl('', [Validators.required, Validators.minLength(3)]), //min length 3
+    year_born: new FormControl('', [Validators.required, Validators.max(2022)]) //max year 2022
+  })
 
   constructor() { }
 
   ngOnInit(): void {
-    this.artistForm = new FormGroup({
-      first_name: new FormControl(this.artist?.first_name, [Validators.required, Validators.minLength(3)]),
-      year_born: new FormControl(this.artist?.year_born, [Validators.required, Validators.max(2022)])
-    })
+   
+    //   this.artistForm = new FormGroup({
+    //   first_name: new FormControl('', [Validators.required, Validators.minLength(3)]), //min length 3
+    //   year_born: new FormControl('', [Validators.required, Validators.max(2022)]) //max year 2022
+    // })
+   
   }
    
   onSubmit() {

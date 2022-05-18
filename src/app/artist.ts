@@ -8,6 +8,7 @@ export interface Artist {
     gender:String,
     nationality:String,
     year_born:Number,
+    image:string,
     tags: string[];
 }
 

@@ -1,26 +1,79 @@
-<h1>Aisling's Lovely App</h1>
+<!DOCTYPE HTML>
+<!-- Author : Aisling Mc Loughlin - S00189922
+	 Year : 2022                      -->
 
-<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" >
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a>
-        <a class="nav-item nav-link" routerLink="/artists" routerLinkActive="active">Artists</a>
-        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
-        <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-        <a class="nav-item nav-link" routerLink="/register" routerLinkActive="active">Register</a>
-      
+<!-- Declare primary language-->
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="Art Gallery that is based in Sligo">
+    <meta name="keywords" content="art, images">
+    <meta name="author" content="Aisling Mc Loughlin">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Title of Page -->
+    <title>Art Gallery | Art & Ink</title>
+</head>
+
+<!-- Body tag Start of Body section display on screen -->
+
+<body>
+
+    <header class="header">
+        <div class="bg-img"></div>
+        <div class="title">
+            <h1>Art & Ink</h1>
         </div>
-</nav>
+        <div class="nav-wrapper">
+            <img src="..\assets\images\Logo.png" alt="Art Gallery" class="logo" />
 
-<div *ngIf="user">{{user.first_name}}</div>
+            <div class="nav-container">
+                <nav id="nav_menu">
+                    <!-- nav -->
+                    <ul>
+                        <li> <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a></li>
+                        <li> <a class="nav-item nav-link" routerLink="/artists" routerLinkActive="active">Artists</a>
+                        </li>
+                        <li> <a class="nav-item nav-link" routerLink="/artworks" routerLinkActive="active">Artworks</a>
+                        </li>
+                        <li> <a class="nav-item nav-link" routerLink="/tickets" routerLinkActive="active">Tickets</a>
+                        </li>
+                        <li> <a class="nav-item nav-link" routerLink="/events" routerLinkActive="active">Events</a>
+                        </li>
 
-<!-- main app container -->
-<div class="container pt-4">
+                        <li> <a *ngIf="user" class="nav-item nav-link" routerLink="/users"
+                                routerLinkActive="active">Users</a></li>
+                        <li> <a *ngIf="!user" class="nav-item nav-link" routerLink="/login"
+                                routerLinkActive="active">Login</a></li>
+                        <li> <a *ngIf="!user" class="nav-item nav-link" routerLink="/register"
+                                routerLinkActive="active">Register</a></li>
+
+                        <li> <a *ngIf="user" class="nav-item nav-link" (click)="logout()">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Main wrapper tag that goes around your content -->
+    <main>
+
+        <div *ngIf="user">Current User: {{user.first_name}}</div>
+
+        <!-- main app container -->
+        <div class="container pt-4">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+
+
+
     <router-outlet></router-outlet>
-</div>
+</body>
 
-
-
-<router-outlet></router-outlet>
-
-
+</html>

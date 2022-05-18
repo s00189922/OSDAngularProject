@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
 
-  private apiURI: string = environment.apiUrl; //url in environment.ts
+  private apiURI: string = "http://localhost:4200/"; //url in environment.ts
   private userSubject: BehaviorSubject<User | null>;
   public user: Observable<User | null>;
 

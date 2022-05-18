@@ -1,0 +1,37 @@
+<p>ticket-list works!</p>
+
+<div class="container-fluid">
+
+
+    <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+      <strong>Opps</strong> {{message}}
+      <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+    </div>
+  
+    <button (click)="openAddTicket()" *ngIf="!showTicketForm" 
+    class="btn btn-lg btn-outline-primary">Add Ticket</button>
+  
+    <button (click)="openEditTicket()" *ngIf="!showTicketForm" [disabled]="!currentTicket"
+      class="btn btn-lg btn-outline-primary">Edit Ticket</button>
+  
+    <button (click)="deleteTicket()" *ngIf="!showTicketForm" [disabled]="!currentTicket"
+      class="btn btn-lg btn-outline-danger">Delete Ticket</button>
+  
+    <app-ticket-form *ngIf="showTicketForm" 
+    (ticketFormClose)="ticketFormClose($event)"
+      [ticket]="currentTicket"></app-ticket-form>
+  
+    <div *ngIf="!showTicketForm">
+      <app-ticket-row class="card" *ngFor="let t of ticketList" [ticket]="t" (click)='clicked(t)'
+        [class.bg-info]="isSelected(t)" [class.text-white]="isSelected(t)">
+      </app-ticket-row>
+    </div>
+  
+    <app-ticket-details *ngIf="currentTicket!" [ticket]="currentTicket">
+  
+    </app-ticket-details>
+  
+  
+  
+  
+  </div>

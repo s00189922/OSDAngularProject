@@ -2,8 +2,7 @@ import { ComponentFactoryResolver, Injectable } from '@angular/core';
 import { Artist } from './artist'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators'
-
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,18 +20,18 @@ export class ArtistService {
       )
   }
 
-  updateArtist(id: string, artist: Artist): Observable<Artist> {
-    console.log('subscribing to update' + id);
-    let artistURI: string = this.dataUri + '/' + id;
+  updateArtist(_id: string, artist: Artist): Observable<Artist> {
+    console.log('subscribing to update' + _id);
+    let artistURI: string = this.dataUri + '/' + _id;
     return this.http.put<Artist>(artistURI, artist)
       .pipe(
         catchError(this.handleError)
       )
   }
 
-  getArtists(): Observable<Artist[]>{
+  getArtists(): Observable<Artist[]> {
 
-    console.log("get artists called" );
+    console.log("get artists called");
 
     return this.http.get<Artist[]>(`${this.dataUri}`)
       .pipe(
@@ -40,14 +39,14 @@ export class ArtistService {
       )
   }
 
-/** DELETE: delete the Artist from the server */
-deleteArtist(id: string): Observable<unknown> {
-  const url = `${this.dataUri}/${id}`; // DELETE 
-  return this.http.delete(url)
-    .pipe(
-      catchError(this.handleError)
-    );
-}
+  /** DELETE: delete the Artist from the server */
+  deleteArtist(_id: string): Observable<unknown> {
+    const url = `${this.dataUri}/${_id}`; // DELETE 
+    return this.http.delete(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 
   //taken from: https://angular.io/guide/http
 

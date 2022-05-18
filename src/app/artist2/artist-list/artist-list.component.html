@@ -15,11 +15,15 @@
     <button (click)="deleteArtist()" *ngIf="!showArtistForm" [disabled]="!currentArtist"
       class="btn btn-lg btn-outline-danger">Delete Artist</button>
   
-      <app-artist-form *ngIf="showArtistForm" 
+      <!-- <app-artist-form *ngIf="showArtistForm" 
       (newArtistEvent)="addNewArtist"
       (artistFormClose)="artistFormClose($event)"
-        [artist]="currentArtist"></app-artist-form>
+        [artist]="currentArtist"></app-artist-form> -->
     
+        <app-artist-form *ngIf="showArtistForm" 
+  (artistFormClose)="artistFormClose($event)"
+    [artist]="currentArtist"></app-artist-form>
+
       <div *ngIf="!showArtistForm">
         <app-artist-row class="card" *ngFor="let a of artistList" [artist]="a" (click)='clicked(a)'
           [class.bg-info]="isSelected(a)" [class.text-white]="isSelected(a)">

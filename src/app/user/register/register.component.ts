@@ -10,7 +10,7 @@ import { UserService } from 'src/app/user.service';
 export class RegisterComponent implements OnInit {
 
   userForm?: FormGroup;
-  message: String = "";
+  message: string = "";
 
 
   constructor(private userService: UserService) { }

@@ -1,0 +1,212 @@
+<p>event-list works!</p>
+
+<div class="container-fluid">
+
+
+  <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+    <strong>Opps</strong> {{message}}
+    <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+  </div>
+
+  <button (click)="openAddEvent()" *ngIf="!showEventForm" class="btn btn-lg btn-outline-primary">Add Event</button>
+
+  <button (click)="openEditEvent()" *ngIf="!showEventForm" [disabled]="!currentEvent"
+    class="btn btn-lg btn-outline-primary">Edit Event</button>
+
+  <button (click)="deleteEvent()" *ngIf="!showEventForm" [disabled]="!currentEvent"
+    class="btn btn-lg btn-outline-danger">Delete Event</button>
+
+  <app-event-form *ngIf="showEventForm" 
+  (eventFormClose)="eventFormClose($event)"
+   [event]="currentEvent">
+  </app-event-form>
+
+  <div *ngIf="!showEventForm">
+    <app-event-row class="card" *ngFor="let e of eventList" [event]="e" (click)='clicked(e)'
+      [class.bg-info]="isSelected(e)" [class.text-white]="isSelected(e)">
+    </app-event-row>
+  </div>
+
+  <app-event-details *ngIf="currentEvent!" [event]="currentEvent">
+
+  </app-event-details>
+
+
+
+
+</div>
+ <!-- Footer -->
+ <!-- <footer>
+  <nav id="nav_footer">
+      <ul>
+          <li> <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a></li>
+          <li> <a class="nav-item nav-link" routerLink="/artists" routerLinkActive="active">Artists</a></li>
+          <li> <a class="nav-item nav-link" routerLink="/artworks" routerLinkActive="active">Artworks</a></li>
+          <li> <a class="nav-item nav-link" routerLink="/tickets" routerLinkActive="active">Tickets</a></li>
+          <li> <a class="nav-item nav-link" routerLink="/events" routerLinkActive="active">Events</a></li>
+          <li>
+              <a href="https://www.nationalgallery.ie/">National Gallery</a>
+          </li>
+      </ul>
+  </nav>
+  <br />
+
+  
+    
+  
+<div class="Row">
+  <div class="wrapper">
+      <div class="Row">
+      <div id="first" class="col-md-2 col-sm-2 ">
+
+          <h2 style="padding-left: 35px">
+              <font color="#ffffff">Opening hours</font>
+          </h2>
+          <p>
+              <font color="#ffffff"><span style="color: #000000;"></span></font>
+          </p>
+
+          <div>
+              <p>
+                  <font color="#ffffff"><span style="font-size: 12pt; color: #000000;">
+                          <span style="font-family: serifastd-light;">Tue. – Sat. 11am –
+                              5pm</span></span></font>
+              </p>
+
+              <p>
+                  <font color="#ffffff">
+                      <span style="font-size: 12pt; color: #000000;">
+                          <span style="font-family: serifastd-light;">Admission Fee<br>Booking Required<br>
+                          </span><span style="font-family: serifastd-light;">Entrance is on main street<br>
+                          </span></span>
+                  </font>
+              </p>
+
+          </div>
+          <div>
+              <p>
+                  <font><span style="color: #000000;">Art &amp; Ink, 4 Castle St, Abbeyquarter North,
+                          Sligo</span><br>
+                      <span style="color: #000000;">F91 P863</span>
+                  </font>
+              </p>
+              <p>
+                  <font><span style="color: #000000;"><i class="fa fa-phone"></i> <a style="color: #000000;"
+                              href="tel://+353719150632">+353 (0) 7191
+                              50632</a></span><br>
+                      <span style="color: #000000;"><i class="fa fa-envelope"></i> <a style="color: #000000;"
+                              href="mailto:info@themodel.ie">info@artandink.ie</a></span>
+                  </font>
+              </p>
+          </div>
+      </div>
+      </div>
+<div class="Column">
+      <div id="second" class="col-md-2 col-sm-2">
+          <h2 style="position: left" id="list">
+              <font color="#ffffff">Information</font>
+          </h2>
+
+          <div style="font-size: 12pt; color: #000000; font-family: serifastd-light;">
+              <ul>
+                  <li id="list">
+
+                      <font><a routerLink="/tickets" routerLinkActive="active"><i
+                                  class="fa fa-angle-right"></i>Event Tickets</a></font>
+                  </li>
+                  <li id="list">
+                      <font><a href="https://goo.gl/maps/SE1Bg31SoyP9N4tk9"><i
+                                  class="fa fa-angle-right"></i>Directions &amp; Map</a></font>
+                  </li>
+                  <li id="list">
+                      <font><a routerLink="/artists" routerLinkActive="active"><i
+                                  class="fa fa-angle-right"></i>Global Artists</a></font>
+                  </li>
+                  <li id="list">
+                      <font><a routerLink="/artworks" routerLinkActive="active"><i
+                                  class="fa fa-angle-right"></i>International Artwork</a></font>
+                  </li>
+                  <li id="list">
+                      <font><a routerLink="/events" routerLinkActive="active"><i
+                                  class="fa fa-angle-right"></i><span style="font-size: 12pt; color: #000000;">
+                                  <span style="font-family: serifastd-light;">Exhibitions</span></span></a>
+                      </font>
+
+                  </li>
+                  <li id="list">
+                      <font><a href="https://www.themodel.ie/privacy-statement/"><i
+                                  class="fa fa-angle-right"></i>Privacy Statement</a></font>
+                  </li>
+                  <li id="list">
+                      <font><a href="https://www.themodel.ie/cookie-policy/"><i
+                                  class="fa fa-angle-right"></i>Cookie Policy</a></font>
+                  </li>
+                  <li id="list">
+                      <font><a href="https://www.themodel.ie/terms-and-conditions/"><i
+                                  class="fa fa-angle-right"></i>Terms &amp; Conditions</a></font>
+
+                  </li>
+
+              </ul>
+
+          </div>
+      </div>
+      </div>
+
+      <div class="Column">
+  <div id="third" class="col-md-2 col-sm-2">
+      <h2 style="position: left" id="list">
+          <font color="#ffffff">Information</font>
+      </h2>
+
+      <div style="font-size: 12pt; color: #000000; font-family: serifastd-light;">
+          <ul>
+              <li id="list">
+
+                  <font><a routerLink="/tickets" routerLinkActive="active"><i
+                              class="fa fa-angle-right"></i>Event Tickets</a></font>
+              </li>
+              <li id="list">
+                  <font><a href="https://goo.gl/maps/SE1Bg31SoyP9N4tk9"><i
+                              class="fa fa-angle-right"></i>Directions &amp; Map</a></font>
+              </li>
+              <li id="list">
+                  <font><a routerLink="/artists" routerLinkActive="active"><i
+                              class="fa fa-angle-right"></i>Global Artists</a></font>
+              </li>
+              <li id="list">
+                  <font><a routerLink="/artworks" routerLinkActive="active"><i
+                              class="fa fa-angle-right"></i>International Artwork</a></font>
+              </li>
+              <li id="list">
+                  <font><a routerLink="/events" routerLinkActive="active"><i
+                              class="fa fa-angle-right"></i><span style="font-size: 12pt; color: #000000;">
+                              <span style="font-family: serifastd-light;">Exhibitions</span></span></a>
+                  </font>
+
+              </li>
+              <li id="list">
+                  <font><a href="https://www.thedoorwaygallery.com/?msclkid=22a6272ed12a11ecb88ee136da9777e6"><i
+                              class="fa fa-angle-right"></i>Sister Gallery</a></font>
+              </li>
+              <li id="list">
+                  <font><a href="https://www.themodel.ie/cookie-policy/"><i
+                              class="fa fa-angle-right"></i>Cookie Policy</a></font>
+              </li>
+              <li id="list">
+                  <font><a href="https://www.themodel.ie/terms-and-conditions/"><i
+                              class="fa fa-angle-right"></i>Terms &amp; Conditions</a></font>
+
+              </li>
+
+          </ul>
+
+      </div>
+      
+  </div>
+</div>
+</div>
+</div> -->
+
+   <!--<p>&copy; Copyright 2022 College Project</p> -->
+<!-- </footer> -->

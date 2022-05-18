@@ -1,26 +1,25 @@
-
-<form [formGroup]="artistForm" (ngSubmit) = "onSubmit()" >
+<form [formGroup]="artistForm" (ngSubmit)="onSubmit()" class>
 
 
     <button type="button" class="btn-close" aria-label="Close" (click)="closeForm()"></button>
 
-<div class="mb-3">
-    <label for="first_name" class="form-label"> First Name</label>
-    <input id="first_name" type="text" formControlName="first_name" class="form-control">
-</div>
-<div class="mb-3">
-    <label for="year_born" class="form-label"> Year Born</label>
-    <input id="year_born" type="number" formControlName="year_born" class="form-control">
-</div>
+    <div class="mb-3">
+        <label for="first_name" class="form-label"> First Name</label>
+        <input id="first_name" type="text" formControlName="first_name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="year_born" class="form-label"> Year Born</label>
+        <input id="year_born" type="number" formControlName="year_born" class="form-control">
+    </div>
 
-<button type="submit" [disabled]= "!artistForm?.valid" class="btn btn-primary" >Submit</button>
+    <button type="submit" [disabled]="!artistForm?.valid" class="btn btn-primary">Submit</button>
 
-<div *ngIf="first_name?.invalid && first_name?.touched"  class="alert alert-danger" >
-    Title is required and must be more than 3 characters
-</div>
-<div *ngIf="year_born?.invalid && year_born?.touched"  class="alert alert-danger" >
-    Year Born is required and must be 2022 or earlier
-</div>
+    <div *ngIf="first_name?.invalid && first_name?.touched" class="alert alert-danger">
+        Title is required and must be more than 3 characters
+    </div>
+    <div *ngIf="year_born?.invalid && year_born?.touched" class="alert alert-danger">
+        Year Born is required and must be 2022 or earlier
+    </div>
 
 
-<!-- </form> -->
+</form>

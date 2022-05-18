@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "OSDAngularProject",
+			"path": "."
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\..\\official_joke_api\\jokes"
+		}
+	],
+	"settings": {}
+}

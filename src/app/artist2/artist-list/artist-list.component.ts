@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Artist } from '../../artist'
 import { ArtistService  }  from '../../artist.service'
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-artist-list',
   templateUrl: './artist-list.component.html',
@@ -67,16 +66,18 @@ export class ArtistListComponent implements OnInit {
 
     // so the updated list appears
 
-    this.artistService.getArtists().subscribe({
-      next: (value: Artist[]) => this.artistList = value,
-      complete: () => console.log('Artist service finished'),
-      error: (mess) => this.message = mess
-    })
+    // this.artistService.getArtists().subscribe({
+    //   next: (value: Artist[]) => this.artistList = value,
+    //   complete: () => console.log('Artist service finished'),
+    //   error: (mess) => this.message = mess
+    // })
+
+    this.ngOnInit();
   }//End of Method
 
-  updateArtist(id: string, artist: Artist): void {
+  updateArtist(_id: string, artist: Artist): void {
     console.log('updating ' + JSON.stringify(artist));
-    this.artistService.updateArtist(id, artist)
+    this.artistService.updateArtist(_id, artist)
       .subscribe({
         next: artist => {
           console.log(JSON.stringify(artist) + ' has been updated');
@@ -86,11 +87,15 @@ export class ArtistListComponent implements OnInit {
       });
     // so the updated list appears
 
-    this.artistService.getArtists().subscribe({
-      next: (value: Artist[]) => this.artistList = value,
-      complete: () => console.log('Artist service finished'),
-      error: (mess) => this.message = mess
-    })
+    // this.artistService.getArtists().subscribe({
+    //   next: (value: Artist[]) => this.artistList = value,
+    //   complete: () => console.log('Artist service finished'),
+    //   error: (mess) => this.message = mess
+  // })
+      this.ngOnInit();
+
+      this.currentArtist = undefined;
+    
   }
 
 
@@ -130,12 +135,14 @@ export class ArtistListComponent implements OnInit {
 
     // so the updated list appears
 
-    this.artistService.getArtists().subscribe({
-      next: (value: Artist[]) => this.artistList = value,
-      complete: () => console.log('artist service finished'),
-      error: (mess) => this.message = mess
-    })
+    // this.artistService.getArtists().subscribe({
+    //   next: (value: Artist[]) => this.artistList = value,
+    //   complete: () => console.log('artist service finished'),
+    //   error: (mess) => this.message = mess
 
+    // })
+    this.ngOnInit();
+    this.currentArtist = undefined;
   }
 
 

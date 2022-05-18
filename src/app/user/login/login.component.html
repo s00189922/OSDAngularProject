@@ -1,11 +1,37 @@
+<!-- Author : Aisling Mc Loughlin - S00189922
+	 Date : 2022
+	 Page : Login Page                  -->
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Art Gallery that is based in Sligo">
+    <meta name="keywords" content="art, images">
+    <meta name="author" content="Aisling Mc Loughlin">
+    <title>Art Gallery | Login</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+
+    <!-- Roboto CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+
+
+</head>
+<body>
+
 
 <div class="col-md-6 offset-md-3 mt-5">
 
     <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
         <strong>Error</strong> {{message}}
         <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
-      </div>
-    
+    </div>
+
 
     <div class="card">
         <h4 class="card-header">Login Form</h4>
@@ -13,16 +39,29 @@
             <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input id="email" type="text" formControlName="email" class="form-control"/>
-                    
+                    <input id="email" type="text" formControlName="email" class="form-control" />
+
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input id="password" type="password" formControlName="password" class="form-control"/>
+                    <input id="password" type="password" formControlName="password" class="form-control" />
                 </div>
                 <button class="btn btn-danger">
-                   Sign In
+                    Sign In
                 </button>
             </form>
         </div>
     </div>
+
+</div>
+
+<footer>
+    <div class="row">
+        <div class="col-md-6">
+            <p>&copy; Copyright AislingMcLoughlin-S00189922</p>
+        </div>
+        <div class="col-md-6"> &copy; Copyright AislingMcLoughlin-S00189922</div>
+    </div>
+</footer>
+</body>
+</html>

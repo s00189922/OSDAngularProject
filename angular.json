@@ -31,6 +31,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
+              "node_modules/jquery/dist/jquery.slim.js",
               "./node_modules/@popperjs/core/dist/umd/popper.min.js", 
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
@@ -40,8 +41,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "6mb"
                 },
                 {
                   "type": "anyComponentStyle",

@@ -1,0 +1,35 @@
+<p>ticket-form works!</p>
+
+
+<form [formGroup]="ticketForm" (ngSubmit) = "onSubmit()" class>
+
+
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeForm()"></button>
+
+<div class="mb-3">
+    <label for="event_type" class="form-label"> Event Type</label>
+    <input id="event_type" type="text" formControlName="event_type" class="form-control">
+</div>
+<div class="mb-3">
+    <label for="ticket_type" class="form-label"> Ticket Type</label>
+    <input id="ticket_type" type="text" formControlName="event_type" class="form-control">
+</div>
+<div class="mb-3">
+    <label for="date" class="form-label"> Date </label>
+    <input id="date" type="number" formControlName="date" class="form-control">
+</div>
+
+<button type="submit" [disabled]= "!ticketForm?.valid" class="btn btn-primary" >Submit</button>
+
+<div *ngIf="event_type?.invalid && event_type?.touched"  class="alert alert-danger" >
+    Event Type is required and must be more than 4 characters
+</div>
+<div *ngIf="ticket_type?.invalid && ticket_type?.touched"  class="alert alert-danger" >
+    Ticket Type is required and must be more than 3 characters
+</div>
+<div *ngIf="date?.invalid && date?.touched"  class="alert alert-danger" >
+    Date is required and must be 2025 or earlier
+</div>
+
+
+</form>
