@@ -6,6 +6,7 @@ import { UserService } from 'src/app/user.service';
 @Component({ 
 templateUrl: 'login.component.html' ,
 selector: 'app-login',
+styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
     signinForm: FormGroup = new FormGroup({});

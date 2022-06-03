@@ -1,42 +1,203 @@
-<div class="col-md-6 offset-md-3 mt-5">
+<!DOCTYPE HTML>
+<!-- Author : Aisling Mc Loughlin - S00189922
+	 Date : 2022
+	 Page : Register Page                      -->
 
-    <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
-        <strong>Opps</strong> {{message}}
-        <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
-    </div>
+<html lang="en">
+
+<head>
+   <!--Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="Art Gallery that is based in Sligo">
+    <meta name="keywords" content="art, images">
+    <meta name="author" content="Aisling Mc Loughlin">
+
+    <!-- Title of Page -->
+    <title> Art & Ink | Register </title>
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <!-- Main -->
+    <main>
+<div class="main-wrapper">
+    <h1 class="h1">Register Today!</h1>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="col-md-6 offset-md-3 mt-5">
+
+                <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+                    <strong>Opps</strong> {{message}}
+                    <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+                </div>
 
 
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class>
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class>
 
 
-        <!-- <button type="button" class="btn-close" aria-label="Close" (click)="closeForm()"></button> -->
+                    <!-- <button type="button" class="btn-close" aria-label="Close" (click)="closeForm()"></button> -->
 
-        <div class="mb-3">
-            <label for="first_name" class="form-label"> First Name</label>
-            <input id="first_name" type="text" formControlName="first_name" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="last_name" class="form-label"> Last Name</label>
-            <input id="last_name" type="text" formControlName="last_name" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label"> Email</label>
-            <input id="eamil" type="text" formControlName="email" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label"> Password</label>
-            <input id="password" type="password" formControlName="password" class="form-control">
-        </div>
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label"> First Name</label>
+                        <input id="first_name" type="text" formControlName="first_name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label"> Last Name</label>
+                        <input id="last_name" type="text" formControlName="last_name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label"> Email</label>
+                        <input id="eamil" type="text" formControlName="email" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label"> Password</label>
+                        <input id="password" type="password" formControlName="password" class="form-control">
+                    </div>
 
-        <button type="submit" [disabled]="!userForm?.valid" class="btn btn-primary">Submit</button>
+                    <button type="submit" [disabled]="!userForm?.valid" class="btn btn-primary">Submit</button>
 
-        <!-- <div *ngIf="title?.invalid && title?.touched"  class="alert alert-danger" >
+                    <!-- <div *ngIf="title?.invalid && title?.touched"  class="alert alert-danger" >
     Title is required and must be more than 3 characters
 </div>
 <div *ngIf="year_written?.invalid && year_written?.touched"  class="alert alert-danger" >
     Year Written is required and must be 2024 or earlier
 </div> -->
 
-    </form>
+                </form>
 
-</div>
+            </div>
+        </div>
+    </div>
+
+
+
+  </div>
+  </main>
+   <!-- Footer -->
+   <footer>
+    <div class="details-footer">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Opening hours </h4>
+                <div class="content">
+                    Tuesday – Saturday: 11:00 – 17:00
+                    <p>
+                        Admission Fee<br>
+                        In-House Booking <br>
+                        Entrance is on mainstreet
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="nav-footer">
+                    <ul>
+                        <li> <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a></li>
+                        <li> <a class="nav-item nav-link" routerLink="/artists"
+                                routerLinkActive="active">Artists</a>
+                        </li>
+                        <li> <a class="nav-item nav-link" routerLink="/artworks"
+                                routerLinkActive="active">Artworks</a>
+                        </li>
+                        <li> <a class="nav-item nav-link" routerLink="/tickets"
+                                routerLinkActive="active">Tickets</a>
+                        </li>
+                        <li> <a class="nav-item nav-link" routerLink="/events" routerLinkActive="active">Events</a>
+                        </li>
+                        <li>
+                            <a href="https://www.nationalgallery.ie/">National Gallery</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="main-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h4>
+                            Contact Us
+                        </h4>
+                        <p>
+                            Art &amp; Ink, 4 Castle St,<br /> Abbeyquarter North,<br />Sligo, F91 P863
+                            <a class="button"
+                                href="https://www.google.com/maps/dir/?api=1&amp;destination=54.274207,-8.474979"
+                                target="_blank">(Get Directions)</a>
+                        </p>
+                        <p>
+                            Tel: <a href="tel://+353719150632">+353 (0) 7191 50632</a><br>
+                            Email: <a href="mailto:info@themodel.ie">info@artandink.ie</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4> About Us </h4>
+                        <div>
+                            <ul>
+                                <li>
+                                    <a routerLink="/tickets" routerLinkActive="active">Event Tickets</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/artists" routerLinkActive="active">Global Artists</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/artworks" routerLinkActive="active">International Artwork</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/events" routerLinkActive="active">Exhibitions</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4> More Information </h4>
+                        <div>
+                            <ul>
+                                <li>
+                                    <a routerLink="/tickets" routerLinkActive="active">Event Tickets</a>
+                                </li>
+
+                                <li>
+                                    <a href="https://goo.gl/maps/SE1Bg31SoyP9N4tk9">Directions &amp; Map</a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://www.thedoorwaygallery.com/?msclkid=22a6272ed12a11ecb88ee136da9777e6">Sister
+                                        Gallery</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.themodel.ie/cookie-policy/">Cookie Policy</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.themodel.ie/terms-and-conditions/">Terms &amp;
+                                        Conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-12">
+                    <p>&copy; Copyright 2022 College Project</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer> 
+</body>
+
+</html>

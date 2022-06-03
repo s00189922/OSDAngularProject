@@ -10,8 +10,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ArtworkService {
 
-  // private dataUri = 'http://localhost:3000/artworks'
-  private dataUri = environment.apiUrl + '/artworks';
+   private dataUri = 'http://localhost:3000/artworks'
+  //private dataUri = environment.apiUrl + '/artworks';
   
   constructor(private http: HttpClient) { }
 

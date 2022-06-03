@@ -1,37 +1,188 @@
-<p>ticket-list works!</p>
 
-<div class="container-fluid">
+<!DOCTYPE HTML>
+<!-- Author : Aisling Mc Loughlin - S00189922
+	 Date : 2022
+	 Page : HomePage                      -->
 
+<html lang="en">
 
-    <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
-      <strong>Opps</strong> {{message}}
-      <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+<head>
+  <!--Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="Art Gallery that is based in Sligo">
+    <meta name="keywords" content="art, tickets">
+    <meta name="author" content="Aisling Mc Loughlin">
+
+    <!-- Title of Page -->
+    <title> Art & Ink | Tickets </title>
+</head>
+<body> 
+<header>
+</header>
+
+<main>
+
+<div class="main-wrapper">
+  <div class="container-fluid">
+    <div class="container">
+
+      <h1 class="h1">Ticket Options</h1>
+
+      <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+        <strong>Opps</strong> {{message}}
+        <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+      </div>
+
+      <button (click)="openAddTicket()" *ngIf="!showTicketForm" class="btn btn-lg btn-outline-primary">Add
+        Ticket</button>
+
+      <button (click)="openEditTicket()" *ngIf="!showTicketForm" [disabled]="!currentTicket"
+        class="btn btn-lg btn-outline-primary">Edit Ticket</button>
+
+      <button (click)="deleteTicket()" *ngIf="!showTicketForm" [disabled]="!currentTicket"
+        class="btn btn-lg btn-outline-danger">Delete Ticket</button>
+
+      <app-ticket-form *ngIf="showTicketForm" (ticketFormClose)="ticketFormClose($event)" [ticket]="currentTicket">
+      </app-ticket-form>
+
+      <div *ngIf="!showTicketForm">
+        <app-ticket-row class="card" *ngFor="let t of ticketList" [ticket]="t" (click)='clicked(t)'
+          [class.bg-info]="isSelected(t)" [class.text-white]="isSelected(t)">
+        </app-ticket-row>
+      </div>
+
+      <app-ticket-details *ngIf="currentTicket!" [ticket]="currentTicket">
+
+      </app-ticket-details>
     </div>
-  
-    <button (click)="openAddTicket()" *ngIf="!showTicketForm" 
-    class="btn btn-lg btn-outline-primary">Add Ticket</button>
-  
-    <button (click)="openEditTicket()" *ngIf="!showTicketForm" [disabled]="!currentTicket"
-      class="btn btn-lg btn-outline-primary">Edit Ticket</button>
-  
-    <button (click)="deleteTicket()" *ngIf="!showTicketForm" [disabled]="!currentTicket"
-      class="btn btn-lg btn-outline-danger">Delete Ticket</button>
-  
-    <app-ticket-form *ngIf="showTicketForm" 
-    (ticketFormClose)="ticketFormClose($event)"
-      [ticket]="currentTicket"></app-ticket-form>
-  
-    <div *ngIf="!showTicketForm">
-      <app-ticket-row class="card" *ngFor="let t of ticketList" [ticket]="t" (click)='clicked(t)'
-        [class.bg-info]="isSelected(t)" [class.text-white]="isSelected(t)">
-      </app-ticket-row>
-    </div>
-  
-    <app-ticket-details *ngIf="currentTicket!" [ticket]="currentTicket">
-  
-    </app-ticket-details>
-  
-  
-  
-  
   </div>
+</div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="details-footer">
+      <div class="row">
+          <div class="col-lg-12">
+              <h4>Opening hours </h4>
+              <div class="content">
+                  Tuesday – Saturday: 11:00 – 17:00
+                  <p>
+                      Admission Fee<br>
+                      In-House Booking <br>
+                      Entrance is on mainstreet
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class=" wrapper">
+      <div class="row">
+          <div class="col-lg-12">
+              <nav class="nav-footer">
+                  <ul>
+                      <li> <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a></li>
+                      <li> <a class="nav-item nav-link" routerLink="/artists"
+                              routerLinkActive="active">Artists</a>
+                      </li>
+                      <li> <a class="nav-item nav-link" routerLink="/artworks"
+                              routerLinkActive="active">Artworks</a>
+                      </li>
+                      <li> <a class="nav-item nav-link" routerLink="/tickets"
+                              routerLinkActive="active">Tickets</a>
+                      </li>
+                      <li> <a class="nav-item nav-link" routerLink="/events" routerLinkActive="active">Events</a>
+                      </li>
+                      <li>
+                          <a href="https://www.nationalgallery.ie/">National Gallery</a>
+                      </li>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+
+      <div class="main-footer">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-4">
+                      <h4>
+                          Contact Us
+                      </h4>
+                      <p>
+                          Art &amp; Ink, 4 Castle St,<br /> Abbeyquarter North,<br />Sligo, F91 P863
+                          <a class="button"
+                              href="https://www.google.com/maps/dir/?api=1&amp;destination=54.274207,-8.474979"
+                              target="_blank">(Get Directions)</a>
+                      </p>
+                      <p>
+                          Tel: <a href="tel://+353719150632">+353 (0) 7191 50632</a><br>
+                          Email: <a href="mailto:info@themodel.ie">info@artandink.ie</a>
+                      </p>
+                  </div>
+
+                  <div class="col-md-4">
+                      <h4> About Us </h4>
+                      <div>
+                          <ul>
+                              <li>
+                                  <a routerLink="/tickets" routerLinkActive="active">Event Tickets</a>
+                              </li>
+                              <li>
+                                  <a routerLink="/artists" routerLinkActive="active">Global Artists</a>
+                              </li>
+                              <li>
+                                  <a routerLink="/artworks" routerLinkActive="active">International Artwork</a>
+                              </li>
+                              <li>
+                                  <a routerLink="/events" routerLinkActive="active">Exhibitions</a>
+                              </li>
+
+                          </ul>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <h4> More Information </h4>
+                      <div>
+                          <ul>
+                              <li>
+                                  <a routerLink="/tickets" routerLinkActive="active">Event Tickets</a>
+                              </li>
+
+                              <li>
+                                  <a href="https://goo.gl/maps/SE1Bg31SoyP9N4tk9">Directions &amp; Map</a>
+                              </li>
+                              <li>
+                                  <a
+                                      href="https://www.thedoorwaygallery.com/?msclkid=22a6272ed12a11ecb88ee136da9777e6">Sister
+                                      Gallery</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.themodel.ie/cookie-policy/">Cookie Policy</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.themodel.ie/terms-and-conditions/">Terms &amp;
+                                      Conditions</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <div class="row">
+              <div class="col-12">
+                  <p>&copy; Copyright 2022 College Project</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+</body>
+
+</html>

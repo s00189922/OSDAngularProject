@@ -1,67 +1,191 @@
+<!DOCTYPE HTML>
 <!-- Author : Aisling Mc Loughlin - S00189922
 	 Date : 2022
-	 Page : Login Page                  -->
-<!DOCTYPE HTML>
+	 Page : Login Page                      -->
 
 <html lang="en">
 
 <head>
-
-    <!-- Required meta tags -->
+   <!--Required meta tags-->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <meta name="description" content="Art Gallery that is based in Sligo">
-    <meta name="keywords" content="art, images">
+    <meta name="keywords" content="art, users, login">
     <meta name="author" content="Aisling Mc Loughlin">
-    <title>Art Gallery | Login</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
-
-    <!-- Roboto CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-
-
+    <!-- Title of Page -->
+    <title> Art & Ink | Login </title>
 </head>
+
 <body>
+    <header>
+    </header>
+
+    <!-- Main -->
+    <main>
+    <div class="main-wrapper">
+        <h1 class="h1">Login</h1>
+        <div class="container-fluid">
+            <div class="container">
+               
+                <div class="col-md-6 offset-md-3 mt-5">
+
+                    <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+                        <strong>Error</strong> {{message}}
+                        <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+                    </div>
 
 
-<div class="col-md-6 offset-md-3 mt-5">
+                    <div class="card">
+                        <h4 class="card-header">Login Form</h4>
+                        <div class="card-body">
+                            <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input id="email" type="text" formControlName="email" class="form-control" />
 
-    <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
-        <strong>Error</strong> {{message}}
-        <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input id="password" type="password" formControlName="password"
+                                        class="form-control" />
+                                </div>
+                                <button class="btn btn-danger">
+                                    Sign In
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
+    </main>
 
-
-    <div class="card">
-        <h4 class="card-header">Login Form</h4>
-        <div class="card-body">
-            <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input id="email" type="text" formControlName="email" class="form-control" />
-
+ <!-- Footer -->
+ <footer>
+    <div class="details-footer">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Opening hours </h4>
+                <div class="content">
+                    Tuesday – Saturday: 11:00 – 17:00
+                    <p>
+                        Admission Fee<br>
+                        In-House Booking <br>
+                        Entrance is on mainstreet
+                    </p>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" formControlName="password" class="form-control" />
-                </div>
-                <button class="btn btn-danger">
-                    Sign In
-                </button>
-            </form>
+            </div>
         </div>
     </div>
 
-</div>
-
-<footer>
-    <div class="row">
-        <div class="col-md-6">
-            <p>&copy; Copyright AislingMcLoughlin-S00189922</p>
+    <div class=" wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="nav-footer">
+                    <ul>
+                        <li> <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a></li>
+                        <li> <a class="nav-item nav-link" routerLink="/artists"
+                                routerLinkActive="active">Artists</a>
+                        </li>
+                        <li> <a class="nav-item nav-link" routerLink="/artworks"
+                                routerLinkActive="active">Artworks</a>
+                        </li>
+                        <li> <a class="nav-item nav-link" routerLink="/tickets"
+                                routerLinkActive="active">Tickets</a>
+                        </li>
+                        <li> <a class="nav-item nav-link" routerLink="/events" routerLinkActive="active">Events</a>
+                        </li>
+                        <li>
+                            <a href="https://www.nationalgallery.ie/">National Gallery</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <div class="col-md-6"> &copy; Copyright AislingMcLoughlin-S00189922</div>
+
+        <div class="main-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h4>
+                            Contact Us
+                        </h4>
+                        <p>
+                            Art &amp; Ink, 4 Castle St,<br /> Abbeyquarter North,<br />Sligo, F91 P863
+                            <a class="button"
+                                href="https://www.google.com/maps/dir/?api=1&amp;destination=54.274207,-8.474979"
+                                target="_blank">(Get Directions)</a>
+                        </p>
+                        <p>
+                            Tel: <a href="tel://+353719150632">+353 (0) 7191 50632</a><br>
+                            Email: <a href="mailto:info@themodel.ie">info@artandink.ie</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4> About Us </h4>
+                        <div>
+                            <ul>
+                                <li>
+                                    <a routerLink="/tickets" routerLinkActive="active">Event Tickets</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/artists" routerLinkActive="active">Global Artists</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/artworks" routerLinkActive="active">International Artwork</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/events" routerLinkActive="active">Exhibitions</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4> More Information </h4>
+                        <div>
+                            <ul>
+                                <li>
+                                    <a routerLink="/tickets" routerLinkActive="active">Event Tickets</a>
+                                </li>
+
+                                <li>
+                                    <a href="https://goo.gl/maps/SE1Bg31SoyP9N4tk9">Directions &amp; Map</a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://www.thedoorwaygallery.com/?msclkid=22a6272ed12a11ecb88ee136da9777e6">Sister
+                                        Gallery</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.themodel.ie/cookie-policy/">Cookie Policy</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.themodel.ie/terms-and-conditions/">Terms &amp;
+                                        Conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-12">
+                    <p>&copy; Copyright 2022 College Project</p>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
+
 </body>
+
 </html>

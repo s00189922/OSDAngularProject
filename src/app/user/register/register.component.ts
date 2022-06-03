@@ -3,9 +3,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from 'src/app/user.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: 'register.component.html' ,
+selector: 'app-register',
+styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
 

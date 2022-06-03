@@ -24,25 +24,23 @@
 <body>
 
     <header class="header">
-        <div class="bg-img"></div>
         <div class="title">
             <h1>Art & Ink</h1>
         </div>
         <div class="nav-wrapper">
-            <img src="..\assets\images\Logo.png" alt="Art Gallery" class="logo" />
-
+            <a routerLink="/" routerLinkActive="active"> <img src="..\assets\images\Logo.png" alt="Art Gallery" class="logo" /></a>    
             <div class="nav-container">
                 <nav id="nav_menu">
-                    <!-- nav -->
+                    <!-- nav --> 
                     <ul>
-                        <li> <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a></li>
+                        <li class="hidden-sm hidden-xs"> <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a></li>
                         <li> <a class="nav-item nav-link" routerLink="/artists" routerLinkActive="active">Artists</a>
                         </li>
-                        <li> <a class="nav-item nav-link" routerLink="/artworks" routerLinkActive="active">Artworks</a>
+                        <li class="hidden-xs"> <a class="nav-item nav-link" routerLink="/artworks" routerLinkActive="active">Artworks</a>
                         </li>
-                        <li> <a class="nav-item nav-link" routerLink="/tickets" routerLinkActive="active">Tickets</a>
+                        <li class="hidden-xs"> <a class="nav-item nav-link" routerLink="/tickets" routerLinkActive="active">Tickets</a>
                         </li>
-                        <li> <a class="nav-item nav-link" routerLink="/events" routerLinkActive="active">Events</a>
+                        <li class="hidden-sm hidden-xs"> <a class="nav-item nav-link" routerLink="/events" routerLinkActive="active">Events</a>
                         </li>
 
                         <li> <a *ngIf="user" class="nav-item nav-link" routerLink="/users"
@@ -57,23 +55,22 @@
                 </nav>
             </div>
         </div>
-
+     
     </header>
 
     <!-- Main wrapper tag that goes around your content -->
     <main>
-
+        <div class="header-image">
+            <div class="bg-img"></div>
+        </div>
         <div *ngIf="user">Current User: {{user.first_name}}</div>
-
         <!-- main app container -->
         <div class="container pt-4">
             <router-outlet></router-outlet>
         </div>
     </main>
 
-
-
+    
     <router-outlet></router-outlet>
 </body>
-
 </html>

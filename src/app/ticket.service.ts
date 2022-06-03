@@ -12,8 +12,8 @@ import { MessageService } from './message.service';
 export class TicketService {
 
 
-    private dataUri = environment.apiUrl + '/tickets'; // URL to web api
-
+    //private dataUri = environment.apiUrl + '/tickets'; // URL to web api
+    private dataUri = 'http://localhost:3000/tickets'
     constructor(private http: HttpClient) { }
 
     addTicket(ticket: Ticket): Observable<Ticket> {
